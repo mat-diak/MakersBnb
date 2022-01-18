@@ -17,7 +17,6 @@ end
 
 get '/listings' do
   @spaces = Space.all
-  p @spaces
   erb(:index)
 end
 
