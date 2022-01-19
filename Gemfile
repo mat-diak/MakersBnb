@@ -6,6 +6,7 @@ ruby '3.0.0'
 
   gem 'sinatra'
   gem 'sinatra-contrib'
+  gem 'pg'
 
 group :test do
   gem 'simplecov', require: false
@@ -21,6 +22,6 @@ end
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'webrick', '~> 1.3', '>= 1.3.1'
-gem 'pg', '~> 0.18.4'
+
 
 
