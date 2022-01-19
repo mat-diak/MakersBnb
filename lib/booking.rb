@@ -1,3 +1,4 @@
+require 'pg'
 # We wanna create a booking class here!
 
 class Booking
@@ -30,6 +31,13 @@ class Booking
     @bookings = []
   end
 
+  def self.database_connection
+    if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'makers_bnb_test')
+    else
+      PG.connect(dbname: 'makers_bnb')
+    end
+  end
 end
 
 
