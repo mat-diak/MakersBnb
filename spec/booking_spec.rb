@@ -25,13 +25,13 @@ describe Booking do
       #Arrange
       # nothing to arrange
       #Act
-      first_booking = Booking.create(check_in_date: '19/01/22', check_out_date: '25/01/22', space_id: 'some_id')
+      first_booking = Booking.create(check_in_date: '2022-01-19', check_out_date: '2022-01-22', space_id: '1')
       #Assert
       #I want a booking . create to return me a booking object. With checkin, checkout and spoace ID 
       expect(first_booking).to be_a Booking
-      expect(first_booking.check_in_date).to eq '19/01/22'
-      expect(first_booking.check_out_date).to eq '25/01/22'
-      expect(first_booking.space_id).to eq 'some_id'
+      expect(first_booking.check_in_date).to eq '2022-01-19'
+      expect(first_booking.check_out_date).to eq '2022-01-22'
+      expect(first_booking.space_id).to eq '1'
       expect(Booking.all).to include first_booking
       Booking.empty
     end
@@ -41,14 +41,14 @@ describe Booking do
     it 'returns all bookings.' do
       # I added two bookings.
       first_booking = Booking.create(
-        check_in_date: '25/12/22',
-        check_out_date: '27/12/22',
-        space_id: 'id_1'
+        check_in_date: '2022-01-19',
+        check_out_date: '2022-01-22',
+        space_id: '1'
       )
       second_booking = Booking.create(
-        check_in_date: '12/11/22',
-        check_out_date: '14/11/22',
-        space_id: 'id_2'
+        check_in_date: '2022-02-25',
+        check_out_date: '2022-02-30',
+        space_id: '2'
       )
       #act
       # call Booking.all

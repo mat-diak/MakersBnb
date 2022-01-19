@@ -10,12 +10,13 @@ class Booking
   end
   
   def self.create(check_in_date:, check_out_date:, space_id:)
-    @bookings << Booking.new(
-      check_in_date: check_in_date, 
-      check_out_date: check_out_date, 
-      space_id: space_id
-    )
-    @bookings[-1] 
+     database_connection.exec("INSERT INTO bookings(check_in, check_out, space_id) VALUES (#{check_in_date}, #{check_out_date}, #{space_id});")
+    # @bookings << Booking.new(
+    #   check_in_date: check_in_date, 
+    #   check_out_date: check_out_date, 
+    #   space_id: space_id
+    # )
+    # @bookings[-1] 
   end
 
   attr_reader :check_in_date, :check_out_date, :space_id
@@ -39,8 +40,3 @@ class Booking
     end
   end
 end
-
-
-
-
-
