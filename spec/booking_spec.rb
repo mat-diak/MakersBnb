@@ -33,12 +33,12 @@ describe Booking do
       expect(first_booking.check_out_date).to eq '25/01/22'
       expect(first_booking.space_id).to eq 'some_id'
       expect(Booking.all).to include first_booking
+      Booking.empty
     end
   end
 
   describe '.all' do
     it 'returns all bookings.' do
-      #arrange
       # I added two bookings.
       first_booking = Booking.create(
         check_in_date: '25/12/22',
@@ -54,7 +54,7 @@ describe Booking do
       # call Booking.all
       #assert
       # I want Booking.all to have all created bookings
-      expect(Booking.all.length).to be 2
+      expect(Booking.all.length).to eq 2
       expect(Booking.all).to include first_booking, second_booking
     end
   end

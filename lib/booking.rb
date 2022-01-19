@@ -9,11 +9,12 @@ class Booking
   end
   
   def self.create(check_in_date:, check_out_date:, space_id:)
-    Booking.new(
+    @bookings << Booking.new(
       check_in_date: check_in_date, 
       check_out_date: check_out_date, 
       space_id: space_id
     )
+    @bookings[-1] 
   end
 
   attr_reader :check_in_date, :check_out_date, :space_id
@@ -23,4 +24,15 @@ class Booking
     @check_out_date = check_out_date
     @space_id = space_id
   end
+
+  # This is a temporary fix until we connect the database. 
+  def self.empty
+    @bookings = []
+  end
+
 end
+
+
+
+
+
