@@ -6,7 +6,7 @@ class Space
   #filter method that queries the BE for dates between a specific period
   def self.filter(date_to:, date_from:)
     result = DatabaseConnection.query(
-      "SELECT FROM spaces WHERE available_from <= '#{date_from}' AND available_to >= '#{date_to}';", []
+      "SELECT * FROM spaces WHERE available_from <= '#{date_from}' AND available_to >= '#{date_to}';", []
       )
     result.map do |space|
       Space.new(

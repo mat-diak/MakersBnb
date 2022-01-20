@@ -1,6 +1,6 @@
 feature 'Creating a new space' do
   scenario 'User can add a new space on MakersBnB' do
-    visit '/new'
+    visit '/create-listing'
     fill_in 'name', with: 'Luxury resort'
     fill_in 'description', with: 'Pleasant flats by the beach'
     fill_in 'price_per_day', with: '100'

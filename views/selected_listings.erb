@@ -7,12 +7,12 @@
  <body>
   <div class="topnav">
     <a href="/login">Log in</a>
-    <a href="/create-listing">Create a listing</a>
+    <a href="/new">Create a listing</a>
   </div>
  <h1 class="heading">Listings</h1>
 <div> 
   <h5>Filter by date</h5>
-  <form action="/selected_listings" method='post'>
+  <form action="/listings" method='get'>
     <input type="date" name="requested_from">
     <input type="date" name="requested_until">
     <input type="submit" value="Show available spaces">
