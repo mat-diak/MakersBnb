@@ -26,7 +26,13 @@ end
 
 post '/listing' do
  
-  Space.create(name: params[:name], description: params[:description], price_per_day: params[:price_per_day])
+  Space.create(
+    name: params[:name], 
+    description: params[:description], 
+    price_per_day: params[:price_per_day],
+    available_from: params[:available_from],
+    available_to: params[:available_to]
+    )
   redirect '/listings'
 end
 
