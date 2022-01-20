@@ -31,3 +31,11 @@ class Space
     @available_to = available_to
   end
 end
+
+# we wanna see properties that match a specific criterium
+# we wanna see properties available from 15/01/2022 to 20/01/2022
+# feature:
+#      - user goes to our listings page
+#      - they pick 2 dates
+#      - they are given available listings
+
