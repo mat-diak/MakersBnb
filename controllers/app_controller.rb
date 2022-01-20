@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative './database_connection_setup'
 require_relative '../lib/space'
 
 class MakersBnB < Sinatra::Base
