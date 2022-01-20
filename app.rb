@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require_relative './lib/space'
 require_relative './database_connection_setup'
 
-class MakersBnB < Sinatra::Ba
+class MakersBnB < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
