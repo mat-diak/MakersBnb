@@ -55,7 +55,7 @@ I want the space to remain as available
 ### Domain Model Diagram
 
 <div align="center">
-  <img src="public/Domain Model - Frame 1.jpg" width="350">
+  <img src="public/Domain Model - Frame 1.jpg" width="450">
 </div>
 
 ### Headline specifications
