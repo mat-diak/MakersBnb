@@ -1,7 +1,7 @@
 require 'pg'
 
 def setup_test_database
-  connectdb = PG.connect(dbname: 'makers_bnb_test')
-  connectdb.exec("TRUNCATE spaces;")
+  connection = PG.connect(dbname: 'makers_bnb_test')
+  connection.exec("TRUNCATE spaces;")
 end
 
