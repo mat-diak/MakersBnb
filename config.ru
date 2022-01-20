@@ -1,6 +1,6 @@
-require_relative './controllers/app'
-require_relative './controllers/booking'
-require_relative './controllers/user'
+require_relative './controllers/app_controller'
+require_relative './controllers/booking_controller'
+require_relative './controllers/user_controller'
 
 
 use User

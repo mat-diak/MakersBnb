@@ -11,7 +11,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', 'controllers', 'app_controller.rb')
 require_relative './setup_empty_test_database.rb'
 
 require 'capybara'
