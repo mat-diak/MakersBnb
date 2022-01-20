@@ -20,7 +20,14 @@ get '/new' do
 end
 
 get '/listings' do
-  @spaces = Space.all
+  requested_from = params['requested_from']
+  requested_until = params['requested_until']
+
+  if requested_from == nil || requested_until == nil
+    @spaces = Space.all
+  else
+    @spaces = Space.filter(date_to: requested_until, date_from: requested_from)
+  end
   erb(:'index')
 end
 

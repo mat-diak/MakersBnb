@@ -3,6 +3,24 @@ require_relative '../database_connection_setup'
 
 class Space 
 
+  #filter method that queries the BE for dates between a specific period
+  def self.filter(date_to:, date_from:)
+    result = DatabaseConnection.query(
+      "SELECT FROM spaces WHERE available_from <= '#{date_from}' AND available_to >= '#{date_to}';", []
+      )
+    result.map do |space|
+      Space.new(
+      id: space['id'], 
+      name: space['name'], 
+      description: space['description'], 
+      price_per_day: space['price_per_day'], 
+      available_from: space['available_from'], 
+      available_to: space['available_to']
+      )
+    end
+  end
+
+
   def self.create(name:, description:, price_per_day:, available_from:, available_to:)
     result = DatabaseConnection.query(
       "INSERT INTO spaces(name, description, price_per_day, available_from, available_to) VALUES($1, $2, $3, $4, $5) RETURNING id, name, description, price_per_day, available_from, available_to;", 
@@ -16,7 +34,13 @@ class Space
     result = DatabaseConnection.query('SELECT * FROM spaces;', [])
 
     result.map do |space|
-      Space.new(id: space['id'], name: space['name'], description: space['description'], price_per_day: space['price_per_day'], available_from: space['available_from'], available_to: space['available_to'])
+      Space.new(
+      id: space['id'], 
+      name: space['name'], 
+      description: space['description'], 
+      price_per_day: space['price_per_day'], 
+      available_from: space['available_from'], 
+      available_to: space['available_to'])
     end
   end   
   
