@@ -3,6 +3,6 @@ require_relative './controllers/booking_controller'
 require_relative './controllers/user_controller'
 
 
-use User
-use Booking
+use UserController
+use BookingController
 run MakersBnB
