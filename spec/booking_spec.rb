@@ -11,7 +11,7 @@ describe Booking do
 
   describe '#id' do
     it 'returns the id of the booking' do
-      persisted_data = persisted_data(booking.id, bookings_table)
+      persisted_data = persisted_data(id: booking.id, table: bookings_table)
       expect(booking.id).to eq persisted_data[0]['id']
     end
   end
@@ -45,7 +45,7 @@ describe Booking do
       #Assert
       #I want a booking . create to return me a booking object. With checkin, checkout and spoace ID 
 
-      persisted_data = persisted_data(first_booking.id, bookings_table)
+      persisted_data = persisted_data(id: first_booking.id, table: bookings_table)
 
       expect(first_booking).to be_a Booking
       expect(first_booking.id).to eq persisted_data[0]['id']
@@ -73,10 +73,10 @@ describe Booking do
 
       bookings = Booking.all
       first_booking = bookings[0]
-      persisted_data_1 = persisted_data(first_booking.id, 'bookings')
+      persisted_data_1 = persisted_data(id: first_booking.id, table: 'bookings')
 
       second_booking = bookings[1]
-      persisted_data_2 = persisted_data(second_booking.id, 'bookings')
+      persisted_data_2 = persisted_data(id: second_booking.id, table: 'bookings')
 
       
       expect(bookings.length).to eq 2
