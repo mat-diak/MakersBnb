@@ -36,18 +36,18 @@ feature 'filtering spaces by availabiltiy' do
     # pick 2 dates
     #assert
     # expect(current_path).to eq '' #we need some PATH
-    expect(page).to include ('Available_1') 
-    expect(page).to include ('Available_2') 
-    expect(page).not_to include ('Unvailable_1') 
-    expect(page).not_to include ('Unavailable_2') 
-    expect(page).to include ('Description_1') 
-    expect(page).to include ('Description_2') 
-    expect(page).not_to include ('Description_3') 
-    expect(page).not_to include ('Description_4') 
-    expect(page).to include ('£1001 per night') 
-    expect(page).to include ('£1002 per night') 
-    expect(page).not_to include ('£1003 per night') 
-    expect(page).not_to include ('£1004 per night') 
+    expect(page).to have_content ('Available_1') 
+    expect(page).to have_content ('Available_2') 
+    expect(page).not_to have_content ('Unvailable_1') 
+    expect(page).not_to have_content ('Unavailable_2') 
+    expect(page).to have_content ('Description_1') 
+    expect(page).to have_content ('Description_2') 
+    expect(page).not_to have_content ('Description_3') 
+    expect(page).not_to have_content ('Description_4') 
+    expect(page).to have_content ('£1001 per night') 
+    expect(page).to have_content ('£1002 per night') 
+    expect(page).not_to have_content ('£1003 per night') 
+    expect(page).not_to have_content ('£1004 per night') 
     # we only wanna see the 2 available listings
     
   end
