@@ -3,8 +3,7 @@ require 'sinatra/reloader'
 require_relative '../lib/space'
 
 class MakersBnB < Sinatra::Base
-  configure :development, :test do
-    set :views, 'views'
+  configure :development do
     register Sinatra::Reloader
     also_reload '../lib/booking.rb'
     also_reload '../lib/space.rb'
@@ -15,12 +14,12 @@ get '/' do
 end
 
 get '/new' do
-  erb(:'new_space')
+  erb(:new_space)
 end
 
 get '/listings' do
   @spaces = Space.all
-  erb(:'index')
+  erb(:index)
 end
 
 post '/listing' do
