@@ -1,0 +1,58 @@
+.card {
+  box-shadow: 1px 10px 5px 0px rgb(15 22 31);
+  width: 20rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 1.5rem;
+  padding-left: 1rem;
+  line-height: unset;
+}
+  
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 15px white;
+  background-color: rgb(15, 22, 31);
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 20px;
+}
+
+.heading{
+  text-align: center;
+  color:rgb(15, 22, 31);
+}
+
+body{
+  color: black;
+  background-color: #fefefe;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Crimson Text", serif;
+}
+
+.topnav {
+  background-color: rgb(15, 22, 31);
+  overflow: hidden;
+  width: 100%;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+  
+  

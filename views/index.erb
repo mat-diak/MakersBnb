@@ -1,26 +1,26 @@
 <!DOCTYPE html>
  <html>
   <head>
-  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+   <link href="<%= url('/index.css') %>" rel="stylesheet" type="text/css" />
    <title>Listings</title>
   </head>
  <body>
- <h1>Available Spaces</h1>
-<div class="card">
-  <div class="container">
-    <p>
-    <% @spaces.each do |space| %>
-        <p class="card"> 
-        <%=space.name%>
-         <br></br>
-         <%=space.description%>
-        <br></br>
-        <%=space.price%>
-        <br></br>
-        </p>
-      <% end %>
-    </p>
+  <div class="topnav">
+    <a href="/login">Log in</a>
+    <a href="/new">Create a listing</a>
   </div>
+ <h1 class="heading">Listings</h1>
+<div class="container">
+    <% @spaces.each do |space| %>
+        <div class="card"> 
+        <h2><%=space.name%></h2>
+         <br></br>
+         <p><%=space.description%></p>
+        <br></br>
+        <h4>£<%=space.price_per_day%> per night</h4>
+        <br></br>
+        </div>
+      <% end %>
 </div>
 </body>
 </html>

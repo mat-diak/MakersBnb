@@ -1,6 +1,6 @@
 require 'pg'
 
-def persisted_data(id, tb_name)
+def persisted_data(table:, id:)
   connection = PG.connect(dbname: 'makers_bnb_test')
-  result = connection.query("SELECT * FROM #{tb_name} WHERE id = #{id};")
+  connection.query("SELECT * FROM #{table} WHERE id=#{id};")
 end

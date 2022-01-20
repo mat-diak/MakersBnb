@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/space'
+require_relative './database_connection_setup'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -21,7 +22,8 @@ get '/listings' do
 end
 
 post '/listing' do
-  Space.create(name: params[:name], description: params[:description], price: params[:price])
+ 
+  Space.create(name: params[:name], description: params[:description], price_per_day: params[:price_per_day])
   redirect '/listings'
 end
 
