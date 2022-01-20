@@ -10,8 +10,6 @@ feature 'Creating a new space' do
     expect(page).to have_content('Luxury resort')
     expect(page).to have_content('Pleasant flats by the beach')
     expect(page).to have_content('100')
-    expect(page).to have_content('2022-01-20')
-    expect(page).to have_content('2022-01-25')
   end
 end
 

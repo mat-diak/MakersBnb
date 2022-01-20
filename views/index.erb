@@ -22,14 +22,14 @@
     <% @spaces.each do |space| %>
         <div class="card"> 
         <h2><%=space.name%></h2>
-         <br></br>
+         <br>
          <p><%=space.description%></p>
-        <br></br>
+        <br>
         <h4>£<%=space.price_per_day%> per night</h4>
-        <br></br>
-        <p><%=space.available_from%></p>
-        <p><%=space.available_to%></p>
-        <br></br>
+        <br>
+        <form action="listing/<%= space.id %>">
+        <input type="submit" value="See more">
+        </form>
         </div>
       <% end %>
 </div>

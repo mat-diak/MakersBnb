@@ -3,6 +3,18 @@ require_relative '../database_connection_setup'
 
 class Space 
 
+  def self.find_by_id(id)
+    space = DatabaseConnection.query("SELECT * FROM spaces WHERE id=$1", [id])[0]
+    Space.new(
+      id: space['id'], 
+      name: space['name'], 
+      description: space['description'], 
+      price_per_day: space['price_per_day'], 
+      available_from: space['available_from'], 
+      available_to: space['available_to']
+    )
+  end
+
   #filter method that queries the BE for dates between a specific period
   def self.filter(date_to:, date_from:)
     result = DatabaseConnection.query(
@@ -43,6 +55,10 @@ class Space
       available_to: space['available_to'])
     end
   end   
+
+  def self.friendly_time(date)
+    time.strftime('%d %b %y')
+  end
   
   attr_reader :id, :name, :description, :price_per_day, :available_from, :available_to
 

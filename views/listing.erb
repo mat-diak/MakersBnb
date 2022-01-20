@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <link href="<%= url('/index.css') %>" rel="stylesheet" type="text/css" />
+   <title>Listings</title>
+  </head>
+ <body>
+  <div class="topnav">
+    <a href="/login">Log in</a>
+    <a href="/create-listing">Create a listing</a>
+  </div>
+ <h1 class="heading"> <%= @space.name %></h1>
+  <p><%= @space.description %></p>
+  <div>Price per day is: <%= @space.price_per_day %></div>
+  <div>Available from: <%= Date.parse(@space.available_from).strftime('%d %b %y') %> </div>
+  <div>Available until: <%= Date.parse(@space.available_to).strftime('%d %b %y') %> </div>
+  <form action='/create-booking/<%= @space.id %>' method='post' >
+    <input type='date' name='check_in'>
+    <input type='date' name='check_out'>
+    <input type='submit' value='Book'>
+  </form>
+</body>
+</html>
+
+

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative '../lib/space'
+require_relative '../lib/booking'
 
 class MakersBnB < Sinatra::Base
   configure :development, :test do
@@ -14,18 +15,27 @@ class MakersBnB < Sinatra::Base
 enable :sessions
 
 get '/' do
-  'Hello world!'
+  redirect '/listings'
+end
+
+post '/create-booking/:space_id' do
+  Booking.create(
+    check_in_date: params['check_in'],
+    check_out_date: params['check_out'],
+    space_id: params['space_id']
+  )
+  redirect '/listings'
+end
+
+get '/listing/:id' do
+  @space = Space.find_by_id(params['id'])
+  erb :listing
 end
 
 get '/listings' do
   @spaces = Space.all
   erb(:'index')
 end
-
-get '/create-listing' do
-  erb(:'create_listing')
-end
-
 
 post '/selected_listings' do
   filtered_spaces = Space.filter(date_from: params['requested_from'], date_to: params['requested_until'])
@@ -38,9 +48,11 @@ get '/selected_listings' do
   erb :selected_listings
 end
 
-# We wanna have a filtered view
+get '/create-listing' do
+  erb(:'create_listing')
+end
 
-post '/listing' do
+post '/create-listing' do
   Space.create(
     name: params[:name], 
     description: params[:description], 
