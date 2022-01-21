@@ -1,0 +1,39 @@
+ <% if flash[:notice_wrong_details]%> 
+      <div class='flash-object'><%= flash[:notice_wrong_details]%></div>
+  <% end %>
+<!DOCTYPE html>
+<html>
+<head>
+<title>login</title>
+<link href="<%= url('/new_space.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+ <h1>Details</h1>
+ <div class="container">
+  <form action='login' method='post'>
+    <!-- USERNAME -->
+    <div class="row">
+      <div class="col-25">
+        <label for="username">Username</label>
+      </div>
+      <div class="col-75">
+        <input input type='text' name='username' placeholder="Your username.." required>
+      </div>
+    </div>
+    <!-- PASSWORD -->
+    <div class="row">
+      <div class="col-25">
+        <label for="username">Passoword</label>
+      </div>
+      <div class="col-75">
+        <input input type='password' name='password' placeholder="Your password.." required>
+      </div>
+    </div>
+  
+    <div class="row">
+      <input type="submit" value="Log in">
+    </div>
+  </form>
+</div>
+</body>
+</html>

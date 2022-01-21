@@ -7,6 +7,7 @@ ruby '3.0.0'
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'pg'
+  gem 'sinatra-flash'
 
 group :test do
   gem 'simplecov', require: false

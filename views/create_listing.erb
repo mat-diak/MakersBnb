@@ -7,7 +7,7 @@
 <body>
  <h1>New Listing</h1>
  <div class="container">
-  <form action='/listing' form method='post'>
+  <form action='/create-listing' form method='post'>
     <div class="row">
       <div class="col-25">
         <label for="name">Name</label>
@@ -24,6 +24,25 @@
         <textarea name='description' placeholder="Write something.." style="height:200px" required></textarea>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="available_from">Available from</label>
+      </div>
+      <div class="col-75">
+        <input type="date" name="available_from">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="available_to">Available to</label>
+      </div>
+      <div class="col-75">
+        <input type="date" name="available_to">
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-25">
         <label for="price">Price</label>
