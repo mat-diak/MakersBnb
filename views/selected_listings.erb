@@ -15,10 +15,10 @@
       <a href="/sign_up">Sign up</a>
     <% end%>
   </div>
- <h1 class="heading">Listings</h1>
+ <h1 class="heading"><%= @spaces.length%> properties found</h1>
 <div> 
-  <h5>Filter by date</h5>
   <form action="/listings" method='get'>
+  <label>Select your dates </label>
     <input type="date" name="requested_from">
     <input type="date" name="requested_until">
     <input type="submit" value="Show available spaces">
@@ -28,14 +28,11 @@
     <% @spaces.each do |space| %>
         <div class="card"> 
         <h2><%=space.name%></h2>
-         <br></br>
          <p><%=space.description%></p>
-        <br></br>
         <h4>£<%=space.price_per_day%> per night</h4>
-        <br></br>
-        <p><%=space.available_from%></p>
-        <p><%=space.available_to%></p>
-        <br></br>
+        <form action="listing/<%= space.id %>">
+          <input type="submit" value="See more">
+        </form>
         </div>
       <% end %>
 </div>
