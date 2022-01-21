@@ -5,9 +5,15 @@
    <title>Listings</title>
   </head>
  <body>
-  <div class="topnav">
-    <a href="/login">Log in</a>
-    <a href="/new">Create a listing</a>
+   <div class="topnav">
+    <% if @user %>
+      <a href="/create-listing">Create a listing</a>
+      <a href="/user/<%= @user.id %>">Your bookings</a>
+      <a href="/logout"> Log out</a>
+    <% else %>
+      <a href="/login">Log in</a>
+      <a href="/sign_up">Sign up</a>
+    <% end%>
   </div>
  <h1 class="heading">Listings</h1>
 <div> 

@@ -1,4 +1,5 @@
 require 'pg'
+require 'date'
 require_relative '../database_connection_setup'
 
 class Space 
@@ -11,7 +12,8 @@ class Space
       description: space['description'], 
       price_per_day: space['price_per_day'], 
       available_from: space['available_from'], 
-      available_to: space['available_to']
+      available_to: space['available_to'],
+      user_id: space['user_id']
     )
   end
 
@@ -27,19 +29,20 @@ class Space
       description: space['description'], 
       price_per_day: space['price_per_day'], 
       available_from: space['available_from'], 
-      available_to: space['available_to']
+      available_to: space['available_to'],
+      user_id: space['user_id']
       )
     end
   end
 
 
-  def self.create(name:, description:, price_per_day:, available_from:, available_to:)
+  def self.create(name:, description:, price_per_day:, available_from:, available_to:, user_id:)
     result = DatabaseConnection.query(
-      "INSERT INTO spaces(name, description, price_per_day, available_from, available_to) VALUES($1, $2, $3, $4, $5) RETURNING id, name, description, price_per_day, available_from, available_to;", 
-    [name, description, price_per_day, available_from, available_to]
+      "INSERT INTO spaces(name, description, price_per_day, available_from, available_to, user_id) VALUES($1, $2, $3, $4, $5, $6) RETURNING id, name, description, price_per_day, available_from, available_to, user_id;", 
+    [name, description, price_per_day, available_from, available_to, user_id]
     )
 
-    Space.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price_per_day: result[0]['price_per_day'], available_from: result[0]['available_from'], available_to: result[0]['available_to'])
+    Space.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price_per_day: result[0]['price_per_day'], available_from: result[0]['available_from'], available_to: result[0]['available_to'], user_id: result[0]['user_id'])
   end
 
   def self.all
@@ -52,23 +55,21 @@ class Space
       description: space['description'], 
       price_per_day: space['price_per_day'], 
       available_from: space['available_from'], 
-      available_to: space['available_to'])
+      available_to: space['available_to'],
+      user_id: space['user_id'])
     end
   end   
-
-  def self.friendly_time(date)
-    time.strftime('%d %b %y')
-  end
   
   attr_reader :id, :name, :description, :price_per_day, :available_from, :available_to
 
-  def initialize(id:, name:, description:, price_per_day:, available_from:, available_to:)
+  def initialize(id:, name:, description:, price_per_day:, available_from:, available_to:, user_id:)
     @id = id
     @name = name
     @description = description
     @price_per_day = price_per_day
     @available_from = available_from
     @available_to = available_to
+    @user_id = user_id
   end
 end
 

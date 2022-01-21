@@ -2,7 +2,7 @@
  <html>
   <head>
    <link href="<%= url('/index.css') %>" rel="stylesheet" type="text/css" />
-   <title>Listings</title>
+   <title>User interface</title>
   </head>
  <body>
   <div class="topnav">
@@ -15,30 +15,28 @@
       <a href="/sign_up">Sign up</a>
     <% end%>
   </div>
- <h1 class="heading">Listings</h1>
-<div> 
-  <h5>Filter by date</h5>
-  <form action="/selected_listings" method='post'>
-    <input type="date" name="requested_from">
-    <input type="date" name="requested_until">
-    <input type="submit" value="Show available spaces">
-  </form>
-</div>
+<!-- Your bookings --> 
+<h1 class="heading">Your bookings:</h1>
 <div class="container">
-    <% @spaces.each do |space| %>
+    <% @bookings.each do |booking| 
+        space = Space.find_by_id(booking.space_id)
+    %>
         <div class="card"> 
         <h2><%=space.name%></h2>
          <br>
-         <p><%=space.description%></p>
+         <p>Check in:  <%=Date.parse(booking.check_in_date).strftime('%d %b %y')%></p>
         <br>
-        <h4>£<%=space.price_per_day%> per night</h4>
+         <p>Check_out:  <%=Date.parse(booking.check_out_date).strftime('%d %b %y')%></p>
         <br>
-        <form action="listing/<%= space.id %>">
-        <input type="submit" value="See more">
-        </form>
+        <h4>£<%=booking.calculate_price%> for your stay</h4>
+        <br>
         </div>
       <% end %>
 </div>
+<!-- Your listings -->
+
+<!-- Pending bookings for your listings: -->
+
 </body>
 </html>
 

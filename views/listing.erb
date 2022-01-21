@@ -5,9 +5,15 @@
    <title>Listings</title>
   </head>
  <body>
-  <div class="topnav">
-    <a href="/login">Log in</a>
-    <a href="/create-listing">Create a listing</a>
+   <div class="topnav">
+    <% if @user %>
+      <a href="/create-listing">Create a listing</a>
+      <a href="/user/<%= @user.id %>">Your bookings</a>
+      <a href="/logout"> Log out</a>
+    <% else %>
+      <a href="/login">Log in</a>
+      <a href="/sign_up">Sign up</a>
+    <% end%>
   </div>
  <h1 class="heading"> <%= @space.name %></h1>
   <p><%= @space.description %></p>
@@ -17,7 +23,11 @@
   <form action='/create-booking/<%= @space.id %>' method='post' >
     <input type='date' name='check_in'>
     <input type='date' name='check_out'>
-    <input type='submit' value='Book'>
+    <% if @user %>
+      <input type='submit' value='Book'>
+    <% else %>
+      You need to log in to book.
+    <% end%>
   </form>
 </body>
 </html>
