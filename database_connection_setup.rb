@@ -1,4 +1,4 @@
-require './lib/database_connection'
+require './app/models/database_connection'
 
     if ENV['ENVIRONMENT'] == 'test'
         DatabaseConnection.setup('makers_bnb_test')

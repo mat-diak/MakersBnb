@@ -1,5 +1,5 @@
 feature 'signing up' do
-  scenario 'users signs up' do
+  xscenario 'users signs up' do
     visit '/'
     click_on 'Sign up'
     fill_in 'name', with: 'Mat'

@@ -5,28 +5,32 @@ feature 'filtering spaces by availabiltiy' do
       description: 'Description_1', 
       price_per_day: "1001", 
       available_from: '2022-01-01',
-      available_to: '2022-12-31'
+      available_to: '2022-12-31',
+      user_id: '1'
       )
     available_space_2 = Space.create(
       name: 'Available_2', 
       description: 'Description_2', 
       price_per_day: "1002", 
       available_from: '2022-03-01',
-      available_to: '2022-10-31'
+      available_to: '2022-10-31',
+      user_id: '2'
       )
     unavailable_space_1 = Space.create(
       name: 'Unavailable_1', 
       description: 'Description_3', 
       price_per_day: "1003", 
       available_from: '2022-03-01',
-      available_to: '2022-03-31'
+      available_to: '2022-03-31',
+      user_id: '3'
       )
     unavailable_space_2 = Space.create(
       name: 'Unavailable_2', 
       description: 'Description_4', 
       price_per_day: "1004", 
       available_from: '2022-05-01',
-      available_to: '2022-05-31'
+      available_to: '2022-05-31',
+      user_id: '4'
       )
     #act
     visit '/listings'

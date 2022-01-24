@@ -1,6 +1,6 @@
 require 'pg'
 require 'date'
-require_relative '../database_connection_setup'
+require_relative '../../database_connection_setup'
 
 class Space 
 

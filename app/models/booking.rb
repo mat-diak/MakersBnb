@@ -1,5 +1,5 @@
-require_relative '../database_connection_setup'
-require_relative '../lib/space'
+require_relative '../../database_connection_setup'
+require_relative 'space'
 require 'date'
 require 'pg'
 

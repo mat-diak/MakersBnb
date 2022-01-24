@@ -1,4 +1,4 @@
-class UserController < MakersBnB
+class UserController < ListingController
   get '/user/:id' do
     if @user = User.find_by_id(session[:user_id]) 
       @bookings = Booking.find_by_user(@user.id)

@@ -1,4 +1,4 @@
-require 'booking'
+require './app/models/booking'
 require 'database_helpers'
 
 describe Booking do
@@ -6,7 +6,13 @@ describe Booking do
   let(:check_in_date) { '2022-02-20' }
   let(:check_out_date) { '2022-03-05' }
   let(:space_id) { '101' } 
-  let(:booking) { Booking.create(check_in_date: check_in_date, check_out_date: check_out_date, space_id: space_id) }
+  let(:user_id) { '1' }
+  let(:booking) { Booking.create(
+    check_in_date: check_in_date, 
+    check_out_date: check_out_date, 
+    space_id: space_id,
+    user_id: user_id
+    )}
   let(:bookings_table) { 'bookings' }
 
   describe '#id' do
@@ -40,7 +46,8 @@ describe Booking do
       first_booking = Booking.create(
         check_in_date: check_in_date, 
         check_out_date: check_out_date, 
-        space_id: space_id
+        space_id: space_id,
+        user_id: user_id
       )
       #Assert
       #I want a booking . create to return me a booking object. With checkin, checkout and spoace ID 
@@ -61,12 +68,14 @@ describe Booking do
       Booking.create(
         check_in_date: check_in_date,
         check_out_date: check_out_date,
-        space_id: space_id
+        space_id: space_id,
+        user_id: '2'
       )
       Booking.create(
         check_in_date: '2022-12-24',
         check_out_date: '2022-12-28',
-        space_id: '5'
+        space_id: '5',
+        user_id: '2'
       )
       #act
       # call Booking.all

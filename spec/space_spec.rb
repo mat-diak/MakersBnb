@@ -1,4 +1,4 @@
-require 'space'
+require './app/models/space'
 require 'database_helpers'
 
 describe Space do
@@ -9,7 +9,8 @@ describe Space do
       description: 'Pleasant flats by the beach', 
       price_per_day: "100", 
       available_from: '2022-01-20',
-      available_to: '2022-01-25'
+      available_to: '2022-01-25',
+      user_id: 2
       )
       persisted_data = persisted_data(id: space.id, table: 'spaces')
       
@@ -30,7 +31,8 @@ describe Space do
         description: 'Pleasant flats by the beach', 
         price_per_day: "100", 
         available_from: '2022-01-20',
-        available_to: '2022-01-25'
+        available_to: '2022-01-25',
+        user_id: '2'
         )
       retrieved_listing = Space.find_by_id(space.id)
       expect(retrieved_listing.id).to eq space.id

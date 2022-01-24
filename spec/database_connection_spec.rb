@@ -1,4 +1,4 @@
-require 'database_connection'
+require './app/models/database_connection'
 
 describe '.setup' do
     it ' describes a connection to a database through PG' do

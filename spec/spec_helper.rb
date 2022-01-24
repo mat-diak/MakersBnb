@@ -11,7 +11,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require File.join(File.dirname(__FILE__), '..', 'controllers', 'app_controller.rb')
+require File.join(File.dirname(__FILE__), '..', 'app', 'controllers', 'app_controller.rb')
+require File.join(File.dirname(__FILE__), '..', 'app', 'controllers', 'listing_controller.rb')
+require File.join(File.dirname(__FILE__), '..', 'app', 'controllers', 'user_controller.rb')
 
 require 'capybara'
 require 'capybara/rspec'
@@ -19,7 +21,9 @@ require 'rspec'
 require_relative './setup_test_database'
 
 # Tell Capybara to talk to MakersBnB
-Capybara.app = MakersBnB
+# Capybara.app = MakersBnB
+# Capybara.app = ListingController
+Capybara.app = UserController
 
 RSpec.configure do |config|
   config.before(:each) do
